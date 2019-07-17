@@ -14,18 +14,22 @@ public class AuxiliaryWindow extends JFrame {
     AuxiliaryWindow(){
         setTitle("Choose level of difficulty!");
         setSize(320,345);
-        //setResizable(false);
+        setResizable(false);
         setLocationRelativeTo(null);
 
         JPanel panel = new JPanel();
 
         ButtonGroup buttonGroup = new ButtonGroup();
-        JRadioButton easyButton =  new JRadioButton("Easy", false);
-        JRadioButton mediumButton =  new JRadioButton("Medium", true);
-        JRadioButton difficultButton =  new JRadioButton("Difficult", false);
+        JRadioButton easyButton =  new JRadioButton("Easy");
+        JRadioButton mediumButton =  new JRadioButton("Medium");
+        JRadioButton difficultButton =  new JRadioButton("Difficult");
         buttonGroup.add(easyButton);
         buttonGroup.add(mediumButton);
         buttonGroup.add(difficultButton);
+
+        easyButton.setActionCommand("easy");
+        mediumButton.setActionCommand("medium");
+        difficultButton.setActionCommand("difficult");
 
         panel.setLayout(null);
         panel.add(easyButton);
@@ -81,7 +85,7 @@ public class AuxiliaryWindow extends JFrame {
                 textArea.setBounds(40,10,300,140);
                 textArea.append("\tDeveloper: Lukyanchik Ivan\n\n");
                 textArea.append("\tGroup: 751004\n\n");
-                textArea.append("\tSoftware: Net Tic Tac Toe 2019\n");
+                textArea.append("\tSoftware: Vanya's Snake 2019 v.1.1\n");
                 textArea.append("--------------------------------------------------------------------------\n\n");
                 textArea.append("               BSUIR, POIT, 2019. All rights reserved. \n");
 
@@ -99,6 +103,13 @@ public class AuxiliaryWindow extends JFrame {
         continueBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                switch (buttonGroup.getSelection().getActionCommand()){
+                    case ("easy"): easy = true;
+                    case ("medium"): medium = true;
+                    case ("difficult"): difficult = true;
+                }
+
                 AuxiliaryWindow.this.dispose();
                 MainWindow mainWindow = new MainWindow();
             }

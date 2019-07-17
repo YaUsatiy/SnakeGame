@@ -152,7 +152,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
             timer.stop();
 
-            JFrame repeatFrame = new JFrame("Would you like to repeat game?");
+            JFrame repeatFrame = new JFrame("Game over!!Would you like to repeat game?");
             repeatFrame.setSize(400,200);
             JPanel panel = new JPanel();
             panel.setLayout(null);
