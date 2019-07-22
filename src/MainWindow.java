@@ -3,7 +3,12 @@ import javax.swing.*;
 public class MainWindow extends JFrame {
 
     MainWindow(){
-        setTitle("Vanya's Snake 2019 v.1.1");
+        if (AuxiliaryWindow.easy)
+            setTitle("The Snake : easy");
+        else if (AuxiliaryWindow.medium)
+            setTitle("The Snake : medium");
+        else
+            setTitle("The Snake : difficult");
         setSize(320,345);
         setLocationRelativeTo(null);
         setResizable(false);

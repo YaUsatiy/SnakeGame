@@ -6,8 +6,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-
 public class GamePanel extends JPanel implements ActionListener {
 
     final int DOT_SIZE = 16;
@@ -29,10 +27,14 @@ public class GamePanel extends JPanel implements ActionListener {
     private boolean paused = false;
 
     public void loadImages(){
-        ImageIcon iconApple = new ImageIcon("apple.png");
-        apple = iconApple.getImage();
-        ImageIcon iconDot = new ImageIcon("dot.png");
-        dot = iconDot.getImage();
+        apple = getImage("apple");
+        dot = getImage("dot");
+    }
+
+    private Image getImage(String name){
+        String fileName = "/img/" + name + ".png";
+        ImageIcon icon = new ImageIcon(getClass().getResource(fileName));
+        return icon.getImage();
     }
 
     public void initialize(){
